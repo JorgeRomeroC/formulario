@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="visually-hidden">Heroes examples</h1>
+
+<div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{% static 'core/img/email.png'%}" alt="" width="72" height="57">
+    <h2>Formulario de contacto</h2>
+    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+  </div>
+
+  <div class="row g-5">
+    <div class="col-md-7 mx-auto col-lg-8">
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-12">
+            <label for="firstName" class="form-label">Nombre y Apellido</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+
+        <hr class="my-4">
+
+        <a class="w-100 btn btn-warning btn-lg" type="submit">Enviar mensaje</a>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
