@@ -12,32 +12,38 @@
 
   <div class="row g-5">
     <div class="col-md-7 mx-auto col-lg-8">
-      <form class="needs-validation" novalidate>
+      <form method="post">
+        {% csrf_token %}
+        
         <div class="row g-3">
           <div class="col-sm-12">
             <label for="firstName" class="form-label">Nombre y Apellido</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            {{form.name}}
             <div class="invalid-feedback">
-              Valid first name is required.
+              {{form.name.errors}}
             </div>
           </div>
 
           <div class="col-12">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            {{form.email}}
             <div class="invalid-feedback">
-              Please enter a valid email address for shipping updates.
+              {{form.email.errors}}
             </div>
           </div>
 
           <div class="col-12">
             <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            {{form.message}}
+            <div class="invalid-feedback">
+              {{form.message.errors}}
+            </div>
           </div>
 
+          
         <hr class="my-4">
+        <input type="submit" class="btn btn-warning" value="Enviar mensaje">
 
-        <a class="w-100 btn btn-warning btn-lg" type="submit">Enviar mensaje</a>
       </form>
     </div>
   </div>
