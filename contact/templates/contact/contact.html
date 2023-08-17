@@ -7,7 +7,7 @@
 <div class="py-5 text-center">
     <img class="d-block mx-auto mb-4" src="{% static 'contact/img/email.png'%}" alt="" width="72" height="57">
     <h2>Pagina de contacto</h2>
-    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. <br>Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
   </div>
 
   <div class="row g-5">
@@ -42,16 +42,24 @@
 
           
         <hr class="my-4">
-        <input type="submit" class="btn btn-warning" value="Enviar mensaje">
+        
+           <input type="submit" class="btn btn-warning" value="Enviar mensaje" {% if "ok" in request.GET %}disabled{% endif %}>
 
       </form>
       <hr class="my-4">
+      <!--MOSTRAR SI EL EMAIL FUE ENVIADO CORRECTAMENTE-->
       {% if 'ok' in request.GET %}
         <div class="alert alert-success" role="alert">
           <strong>El mesanje se ha enviado correctamente</strong>
         </div>
-        
       {% endif %}
+      <!--MOSTRAR SI EMAIL NO PUEDO SEWR ENVIADO CORRECTAMENTE-->
+      {% if 'error' in request.GET %}
+      <div class="alert alert-danger" role="alert">
+        <strong>El mesanje se ha podido ser enviado, intente mas tarde</strong>
+      </div>
+    {% endif %}
+    
     </div>
   </div>
 {% endblock content %}
